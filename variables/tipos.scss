@@ -111,3 +111,28 @@ $features:(
   $caracteristica: map-get($features,lenguaje);
   value: $caracteristica;
 }
+
+
+
+
+
+/******************Interpolemos algunas variables*************/
+
+$rsociales:(
+ red1: face,
+ red2: twitter,
+ red3 : google,
+ red4 : github
+ );
+
+ $val1 : map-get($rsociales, red1);
+
+
+//la primera variable del ciclo es la key del mapa y la segunda el value.
+
+ @each $val, $red in $rsociales {
+ //Cremos un menu con iteraciones para cada objeto de nuestro mapa.
+ .menu-#{$val}{
+ color:$red;
+   }
+ }

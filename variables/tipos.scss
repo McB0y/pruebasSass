@@ -43,3 +43,71 @@ color: map-get($mapa,primerValor);
 }
 map-get($networks-colors,twitter)
 */
+
+
+
+
+
+/*****************Operaciones***********************/
+
+// NOTE: Se siente como programar al ya que podemos llevar a cabo:
+// operaciones, ciclos, calidaciones, etc. Para esto tenemos a la mano operaciones
+//fundamentales que existen en los otros lenguajes de programación.
+
+
+
+$a: 5px;
+$b: null;
+$c: "Soy una cadena";
+$d: true;
+$e: tomato;
+$f: elemento1, elemento2, elemento3;
+$features:(
+    lenguaje: ruby,
+    extension: scss,
+    salida : css,
+    herramienta: workflow
+     );
+
+
+//Vamos a realizar algunas operaciones con las siguientes variables.
+
+//sass es lo suficientemente listo como para saber cuando se tienen que llevar
+//acabo una operacion aritmética.
+
+.aritmeticas{
+  suma: $a+20;
+  resta: ($a)-20;
+  division: $a/20;
+  multiplicacion: $a*10;
+}
+
+//Podemos hacer condicionales.
+
+
+.logicos{
+  value : $a > 7px;//false
+  @if ($a or $b) and (length($f) == 3){
+    value: ambas tienen un valor;
+  }
+  @else{
+  value: ninguna tiene valor;
+  }
+}
+
+.condicionales{
+  @if type-of($c) == string  and length($c)==1{
+    //la función length() va mejor con listas.
+  value : verdadero;
+  }
+  @else{
+    value: falso;
+  }
+}
+
+
+//Tomando los valores de una lista.
+.valores{
+  $caracteristica: map-get($features,lenguaje);
+  value: $caracteristica;
+}

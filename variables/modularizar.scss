@@ -1,0 +1,29 @@
+/*
+EL principal obejetivo de esta usando un preprocesador,
+ademas de aceplerar el flujo de trabajo, es poder dar mantenimiento,
+tener legibilidad y modularización.
+
+El uso de placeholders, mixins, y funciones especiales de sass pueden ser
+de bastante ayuda si esto es lo que se pretende.
+
+*/
+
+%menu{
+  height: 100vh;
+  width : 100%;
+  size : 20px;
+  border : black 1px;
+}
+// NOTE: Cuando se mande a llamar en algun elemento no debes de
+//agragar mas que un mixin si acaso, delo contrario se repetira el bloque.
+
+@mixin menuCabecera($color, $size) {
+  color: $color;
+  size: $size;
+}
+
+.menu{
+ @include menuCabecera(red, 25px);
+ // NOTE: Ten en cuenta que el bloque .menu se va a repetir 2 veces
+ //1 por el placeholder y la otra por el, mixin.
+}

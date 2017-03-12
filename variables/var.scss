@@ -11,7 +11,7 @@ $height: 100vh;
 $width: 100%;
 
 .cabecera{
-  // NOTE: variables de bloque, con el ismo nombre que
+  // NOTE: variables de bloque, con el mismo nombre que
   //nuestras variables globales pero en realidad no son las mismas
   $color1: yellow;
   $color2: pink;
@@ -27,3 +27,15 @@ $width: 100%;
 // NOTE: hay 2 tipos de sintaxis .scss o .sass este último puede importar cuaquier
 //otro archivo ya sea con extensión .scss o .sass y teniendo como ventaja la identación
 //y con la facilidad de convertirlo mediante la linea de comandos.
+
+
+
+.funky {
+  font: {
+    family: fantasy;
+    size: 30em;
+    weight: bold;
+  }
+}
+
+//ademas de tener la sintaxis anidada tenemos propiedades anidadas como la anterior.

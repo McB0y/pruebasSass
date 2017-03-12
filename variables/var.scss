@@ -6,14 +6,24 @@
 
 $color1: red;
 $color2: green;
-$color3 : black;
+$color3: black;
+$height: 100vh;
+$width: 100%;
 
 .cabecera{
   // NOTE: variables de bloque, con el ismo nombre que
   //nuestras variables globales pero en realidad no son las mismas
-  $color1 : yellow;
-  $color2 : pink;
-  $color3 : blue;
-
-
+  $color1: yellow;
+  $color2: pink;
+  $color3: blue;
+  width: $width;
+  height: $height;
+    ul{
+      width: $width;
+      height: $height;
+      //mas código aquí
+    }
 }
+// NOTE: hay 2 tipos de sintaxis .scss o .sass este último puede importar cuaquier
+//otro archivo ya sea con extensión .scss o .sass y teniendo como ventaja la identación
+//y con la facilidad de convertirlo mediante la linea de comandos.

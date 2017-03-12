@@ -17,13 +17,29 @@ de bastante ayuda si esto es lo que se pretende.
 // NOTE: Cuando se mande a llamar en algun elemento no debes de
 //agragar mas que un mixin si acaso, delo contrario se repetira el bloque.
 
-@mixin menuCabecera($color, $size) {
+@mixin menuCabecera($w, $h, $color, $size) {
+  width: $w;
+  height: $h;
   color: $color;
   size: $size;
+  @content;
 }
 
 .menu{
- @include menuCabecera(red, 25px);
+ @include menuCabecera(100%, 100vh, red, 25px);
  // NOTE: Ten en cuenta que el bloque .menu se va a repetir 2 veces
  //1 por el placeholder y la otra por el, mixin.
+}
+
+//Tenemos la posibilidad de mandar a llamar al mixin y e independientemente a
+//un trozo de codigo en el mismo bloque por ejemplo:
+
+
+
+
+
+.pruebaMixin{
+  @include menuCabecera(100%, 100vh, blue, 20em);
+  box-sizing: border-box;
+  text-decoration: none;
 }

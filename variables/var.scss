@@ -1,0 +1,19 @@
+//Podemos tener variables declaradas como globales
+// o dentro de nuestros bloques de código teniendo scopes.
+
+
+// NOTE: Variables globales:
+
+$color1: red;
+$color2: green;
+$color3 : black;
+
+.cabecera{
+  // NOTE: variables de bloque, con el ismo nombre que
+  //nuestras variables globales pero en realidad no son las mismas
+  $color1 : yellow;
+  $color2 : pink;
+  $color3 : blue;
+
+
+}

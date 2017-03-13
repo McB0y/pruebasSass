@@ -128,3 +128,30 @@ header.widget {
   font-family: Arial;
   color: blue;
 }
+
+
+
+Las directivas de control son bastante sencillas en realidad.
+
+Tenemos las siguientes:
+
+1.-función if() --> solamente evalúa el argumento que corresponde al valor que va a devolver.
+2.-directiva @if --> evalúa una expresión SassScript y solamente incluye los estilos definidos
+en su interior, puede ser seguida de una o más directivas "@else if".
+
+
+
+
+
+
+NOTA:
+
+Las directivas de control son una característica
+muy avanzada que rara vez se utiliza directamente
+en las hojas de estilos. Sin embargo, son muy
+útiles para definir mixins y otras características
+avanzadas de librerías como Compass.
+
+
+
+Referencia de estas notas: librosweb

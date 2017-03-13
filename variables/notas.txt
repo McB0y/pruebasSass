@@ -223,7 +223,64 @@ Mixins: Se definen baja la directiva @mixin y es opcional el uso o no de argumen
 tal cual una función "()".
 
 Los mixins pueden tener sectores haciendo referencia al padre por medio del operador
-"&"
+"&" como en el siguiente ejemplo:
+
+@mixin clearfix {
+  display: inline-block;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}
+
+podemos llamar al mixin directamente sin un anidamiento ya que esto daria un error e.g.
+
+@mixin silly-links {
+  a {
+    color: blue;
+    background-color: red;
+  }
+}
+
+@include silly-links;
+
+
+-En su interior también puede haber otros mixins por ejemplo:
+
+
+@mixin compound {
+  @include highlighted-background;
+  @include header-text;
+}
+
+@mixin highlighted-background { background-color: #fc0; }
+@mixin header-text { font-size: 20px; }
+
+-Se pueden especificar parámetros por defecto.
+-Tambié se pueden pasar parámetros variables con la notación (...),
+lo cual resulta bastante útil por ejemplo para una sombra.
+
+También es posible pasar una lista de argumentos y un mapa siempre que la
+lista se pase primero, como por ejemplo: @include colors($values..., $map...).
+
+
+"Algo super curioso es que también se le puede pasar un bloique de código
+como el caso d eacontinuación en el que se le pasa una linea definiendo un color
+y esta se cambia en el mixin por la instrucción @include."
+
+$color: white;
+@mixin colors($color: blue) {
+  background-color: $color;
+  @content;
+  border-color: $color;
+}
+.colors {
+  @include colors { color: $color; }
+}
 
 
 

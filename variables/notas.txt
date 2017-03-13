@@ -1,0 +1,92 @@
+La instalación de sass requiere de la previa instalación de ruby,
+una vez que instalado ruby, podemos ejecutar el siguiente comando:
+
+$ sudo gem install sass
+
+Podemos tener una shell interactiva para probar sass,
+la abrimos así:
+
+$ sass -i
+
+
+Sobre las listas no sirven de mucho por si solas pero al implementar las funciones
+que estan dentro de SassScript se tiene una potencia increible:
+
+nth() --> Para obtener el n-esimo elemento de una lista
+append() --> para unir muchas listas de un sola vez.
+join() --> une todos los valores de la lista.
+@each --> la directiva que nos ayuda a iterar en una lista.
+
+
+Tenemos funciones que aplican a los mapas:
+
+1.- map-get()
+2.- map_merge() --> añade nuevos elementos clave: valor
+3.- @each
+
+
+
+Sass soporta las directivas at "@" de css y las mejora, un ejemplo de estas directivas
+seria el uso de @import el cual permite la importación de otros archivos con
+la extensión .sass o .scss.
+Independientemente de la extension del archivo estos se mezclan en e archivo principal
+donde también podemos hacer uso de las variables, mixins, placeholders, etc
+
+@import -- espera como argumento el archivo con la extensión .sass o .scss por defecto
+espera el primero.
+Podemos importar varios archivos con una sola directiva como acontinuación.
+
+@import "rounded-corners", "text-shadow";
+
+O interpolando:
+
+"$family: unquote("Droid+Sans");
+@import url("http://fonts.googleapis.com/css?family=#{$family}");"
+
+
+
+
+
+"Los archivos importados con reglas @import anidadas no pueden contener elementos
+y directivas que sólo pueden colocarse en el primer nivel jerárquico de las
+hojas de estilos, como @mixin o @charset.
+
+Tampoco es posible anidar reglas @import dentro de los mixin y las directivas
+de control."
+
+
+
+Note: Uno de los aspectos mas importantes seria:
+
+si utilizas @extend con la directiva @media o con otras directivas CSS,
+sólo debes extender los selectores que están encerrados por esas directivas.
+
+
+
+El siguiente ejemplo funciona correctamente:
+
+@media print {
+  .error {
+    border: 1px #f00;
+    background-color: #fdd;
+  }
+  .seriousError {
+    @extend .error;
+    border-width: 3px;
+  }
+}
+
+
+
+
+Otra de las dos directivas importantes serian :
+
+@warm --> muestra el valor de una expresió SaasScript en forma de mensaje de error
+y estos mensajes de error so despegados de en la hoja de estilos para que se aprecie en
+donde exactamente esta siendo generado el error.
+
+La regla @debug ---> muestra por la consola el valor de la expresión SassScript indicada.
+Se trata de una regla útil para depurar hojas de estilos muy complejas y que
+utilizan expresiones SassScript muy avanzadas. Ejemplo:
+
+1.- @debug 10em + 12em; --> //la salida sera : Line 1 DEBUG: 22em

@@ -90,3 +90,41 @@ Se trata de una regla útil para depurar hojas de estilos muy complejas y que
 utilizan expresiones SassScript muy avanzadas. Ejemplo:
 
 1.- @debug 10em + 12em; --> //la salida sera : Line 1 DEBUG: 22em
+
+
+
+
+@at-root --> La utilizamos para aprovechar el scope teniendo un bloque
+anidado pero en el .css se transpilaria a un bloque independiente, por ejemplo:
+
+
+
+
+@mixin widget($padding,$header-font,$header-color){
+  display: block;
+  padding: $padding;
+  @at-root{
+    header#{&}  {
+      font-family: $header-font;
+      color: $header-color;
+    }
+  }
+}
+.widget {
+  @include widget(1em,Arial,blue);
+}
+
+
+
+Teniendo la siguiente salida:
+
+.widget {
+  display: block;
+  padding: 1em;
+}
+
+
+header.widget {
+  font-family: Arial;
+  color: blue;
+}

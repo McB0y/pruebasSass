@@ -219,4 +219,28 @@ avanzadas de librerías como Compass.
 
 
 
+Mixins: Se definen baja la directiva @mixin y es opcional el uso o no de argumentos
+tal cual una función "()".
+
+Los mixins pueden tener sectores haciendo referencia al padre por medio del operador
+"&"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Referencia de estas notas: librosweb

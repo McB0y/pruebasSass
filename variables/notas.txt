@@ -136,9 +136,74 @@ Las directivas de control son bastante sencillas en realidad.
 Tenemos las siguientes:
 
 1.-función if() --> solamente evalúa el argumento que corresponde al valor que va a devolver.
+
 2.-directiva @if --> evalúa una expresión SassScript y solamente incluye los estilos definidos
 en su interior, puede ser seguida de una o más directivas "@else if".
 
+3.-La directiva @for --> iterara sobre algun elemento y regresara el valor, su sintaxis es:
+
+@for $var from <inicio> to <final>, inicio y inal deben de ser enteros. Por ejemplo:
+
+$lista : "uno", "dos", "tres", "cuatro", "cinco";
+
+@mixin itera(){
+  @for $var from 1 to length($lista){
+    value : $var;
+  }
+  @content
+}
+
+.menu{
+  @include itera;
+}
+
+
+
+
+4.-La directiva @each --> Otra forma de iterar similar al ciclo for. También puede pasarse
+mas de una variable al ciclo @each $var1, $var2, ... in <lista>.
+Si <lista> es una lista formada por listas, a cada variable se le asigna un elemento de
+cada sublista. Ejemplo:
+
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+
+NOTE: Como los mapas se consideran listas formadas por pares clave: valor,
+también en este caso se puede utilizar la asignación múltiple. Ejemplo:
+
+@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+  #{$header} {
+    font-size: $size;
+  }
+}
+Dando como salida lo siguiente:
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+}
+
+
+La última de las directivas de control es : @while puede dar mejores resultados que
+si se programara con la directiva @for, por ejemplo:
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
 
 
 

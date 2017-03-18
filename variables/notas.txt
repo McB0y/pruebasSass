@@ -26,10 +26,10 @@ Tenemos funciones que aplican a los mapas:
 
 
 
-Sass soporta las directivas at "@" de css y las mejora, un ejemplo de estas directivas
+Sass soporta las directivas at "@" de css y la mejora, un ejemplo de estas directivas
 seria el uso de @import el cual permite la importación de otros archivos con
 la extensión .sass o .scss.
-Independientemente de la extension del archivo estos se mezclan en e archivo principal
+Independientemente de la extension del archivo estos se mezclan en el archivo principal
 donde también podemos hacer uso de las variables, mixins, placeholders, etc
 
 @import -- espera como argumento el archivo con la extensión .sass o .scss por defecto
@@ -165,9 +165,9 @@ mas de una variable al ciclo @each $var1, $var2, ... in <lista>.
 Si <lista> es una lista formada por listas, a cada variable se le asigna un elemento de
 cada sublista. Ejemplo:
 
-@each $animal, $color, $cursor in (puma, black, default),
-                                  (sea-slug, blue, pointer),
-                                  (egret, white, move) {
+@each $animal, $color, $cursor in (puma, black, default), --->La salida de la primera iteración.
+                                  (sea-slug, blue, pointer), --->La salida de la segunda iteración.
+                                  (egret, white, move) { --->La salida de la tercera iteración.
   .#{$animal}-icon {
     background-image: url('/images/#{$animal}.png');
     border: 2px solid $color;
@@ -268,7 +268,7 @@ También es posible pasar una lista de argumentos y un mapa siempre que la
 lista se pase primero, como por ejemplo: @include colors($values..., $map...).
 
 
-"Algo super curioso es que también se le puede pasar un bloique de código
+"Algo super curioso es que también se le puede pasar un bloque de código
 como el caso d eacontinuación en el que se le pasa una linea definiendo un color
 y esta se cambia en el mixin por la instrucción @include."
 

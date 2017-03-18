@@ -1,0 +1,24 @@
+/*
+Funcionan como los lenguajes de programación, pudiendo llamara otras funciones dentro de estas:
+pero se debe de tener en mente que se debe de regresar un valor, pues dentro de la función
+solo puede haber declaración de vriables y directivas de control.
+Por ejemplo:
+*/
+
+
+$path: './your_path/img/';
+
+
+
+
+@function url($cadena) {
+   @return $cadena;
+}
+
+
+@function imgage($img){
+  @return url($path + $img);
+}
+
+
+// podemos iterar con ciclos tal lenguaje de programación, muy útil en sombras o animaciones.

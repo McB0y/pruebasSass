@@ -261,7 +261,7 @@ podemos llamar al mixin directamente sin un anidamiento ya que esto daria un err
 @mixin header-text { font-size: 20px; }
 
 -Se pueden especificar parámetros por defecto.
--Tambié se pueden pasar parámetros variables con la notación (...),
+-También se pueden pasar parámetros variables con la notación (...),
 lo cual resulta bastante útil por ejemplo para una sombra.
 
 También es posible pasar una lista de argumentos y un mapa siempre que la

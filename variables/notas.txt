@@ -282,6 +282,8 @@ $color: white;
   @include colors { color: $color; }
 }
 
+//NOTE: Si de hecho tiene sentido que acepte el bloque porque ademas de esatar definiendo
+un color por defecto, se reservo un bloque ocional de codigo.
 
 
 

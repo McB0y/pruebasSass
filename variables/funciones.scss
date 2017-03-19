@@ -21,4 +21,28 @@ $path: './your_path/img/';
 }
 
 
-// podemos iterar con ciclos tal lenguaje de programación, muy útil en sombras o animaciones.
+/*
+
+Podemos iterar con ciclos tal lenguaje de programación,
+incluso podemos usar las sentencias de control comunes,
+muy útil en sombras o animaciones hasta recorrer mapas anidados.
+
+1.-ciclo for:
+2.-ciclo while:
+3.-ciclo each for: recomendado para iterar en los mapas.
+NOTE:Los ciclos pueden o no ir dentro de algun bloque
+de código o llamarlos directamente para que ejecuten el código de
+su interior.
+
+4.-Sentencias de control como if, else:
+*/
+
+
+
+$list: rgb(77, 93, 176), rgb(41, 41, 176), rgb(185, 95, 11), rgb(196, 102, 16), rgb(222, 204, 47);
+@for $i from 1 through length($list){
+  $current: nth($list,$i);
+  .button.#{$current}{
+    background-color: $current;
+  }
+}
